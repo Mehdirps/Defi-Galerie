@@ -1,6 +1,10 @@
 /* body {
     background-color: rgb(255, 207, 202);
 } */
+main {
+    margin: auto;
+    width: 80%;
+}
 
 h1 {
     font-size: 3rem;
@@ -9,11 +13,9 @@ h1 {
 }
 
 section {
-    width: max-content;
     margin: auto;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 100px;
 }
 
 /* div {
@@ -25,8 +27,6 @@ section {
 figure {
     position: relative;
     padding: 5px;
-    width: 350px;
-    height: 250px;
     border: .5px solid rgb(151, 151, 151);
     background-color: rgb(255, 207, 202);
     /* box-shadow: 0px 10px 0px 0px black; */
@@ -45,6 +45,10 @@ img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.img {
+    filter: blur(2px);
 }
 
 figure:hover::after {
@@ -73,18 +77,6 @@ figure:hover::before {
     z-index: -1;
 }
 
-div::after {
-    content: "";
-    display: block;
-    width: 300px;
-    height: 5px;
-    background-color: radial-gradient(black, white);
-}
-
-.img {
-    display: none;
-}
-
 /* .show+.img {
     display: initial;
     position: fixed;
@@ -98,6 +90,52 @@ div::after {
     display: none;
 }
 
+
+@keyframes zoom {
+    0% {
+        position: absolute;
+        transform: translate(-50%,-50%);
+        top: 100px;
+        left: 100px;
+        width: 0;
+        -webkit-filter: blur(4px);
+        -moz-filter: blur(4px);
+        -o-filter: blur(4px);
+        -ms-filter: blur(4px);
+    }
+
+    25% {
+        width: 100px;
+        -webkit-filter: blur(4px);
+        -moz-filter: blur(4px);
+        -o-filter: blur(4px);
+        -ms-filter: blur(4px);
+    }
+
+    50% {
+        width: 300px;
+        -webkit-filter: blur(3px);
+        -moz-filter: blur(3px);
+        -o-filter: blur(3px);
+        -ms-filter: blur(3px);
+    }
+
+    75% {
+        width: 500px;
+        -webkit-filter: blur(1px);
+        -moz-filter: blur(1px);
+        -o-filter: blur(1px);
+        -ms-filter: blur(1px);
+    }
+
+    100% {
+        width: 1000px;
+        -webkit-filter: blur(0px);
+        -moz-filter: blur(0px);
+        -o-filter: blur(0px);
+        -ms-filter: blur(0px);
+    }
+}
 .show {
     display: initial;
     position: fixed;
@@ -106,6 +144,8 @@ div::after {
     left: 50%;
     width: 50%;
     z-index: 20;
+    animation: zoom .5s linear;
+    
 }
 
 .fond {

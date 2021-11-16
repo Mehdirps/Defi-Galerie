@@ -49,7 +49,7 @@ let modalImg = document.querySelector(".modal img");
 //     }
 // }
 for (let image of images) {
-    
+
     image.addEventListener("click", (e) => {
 
         e.preventDefault();
@@ -63,6 +63,13 @@ for (let image of images) {
         fond.style.display = "block";
 
         close.style.display = "initial";
+        
+        let figure = image.parentElement;
+
+        let left = figure.offsetLeft;
+        let top = figure.offsetTop;
+        
+        console.log(modal.getAnimations());
     });
     fond.addEventListener("click", () => {
 
