@@ -49,29 +49,26 @@ let modalImg = document.querySelector(".modal img");
 //     }
 // }
 for (let image of images) {
-
+    
     image.addEventListener("click", (e) => {
-        
+
         e.preventDefault();
-        
+
         let link = image.href;
-        
+
         modal.classList.add("show");
-        
+
         modalImg.src = link;
 
-        image.classList.add("show");
-        
         fond.style.display = "block";
-        
+
         close.style.display = "initial";
-        
-    })
+    });
     fond.addEventListener("click", () => {
 
         fond.style.display = "none";
 
-        image.classList.remove("show");
+        modal.classList.remove("show");
 
         close.style.display = "none";
     });
@@ -80,21 +77,18 @@ for (let image of images) {
 
         fond.style.display = "none";
 
-        image.classList.remove("show");
+        modal.classList.remove("show");
 
         close.style.display = "none";
 
     });
 
-    for (img of images) {
+    modalImg.addEventListener("click", () => {
 
-        img.addEventListener("click", () => {
+        fond.style.display = "none";
 
-            fond.style.display = "none";
+        modal.classList.remove("show");
 
-            image.classList.remove("show");
-
-            close.style.display = "none";
-        });
-    }
+        close.style.display = "none";
+    });
 }
